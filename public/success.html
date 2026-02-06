@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAY! 🎉</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+    <div class="floating-emoji" style="left: 15%; animation-duration: 7s;">🎆</div>
+    <div class="floating-emoji" style="left: 45%; animation-duration: 10s; animation-delay: 2s;">🥰</div>
+    <div class="floating-emoji" style="left: 80%; animation-duration: 8s; animation-delay: 1s;">💍</div>
+
+    <div class="container success-container">
+        <h1>YAY! Final-fucking-ly! 🎉</h1>
+        <p style="font-size: 1.5rem; color: #ff3366;">Congrats on using your two brain cells and accepting me as your
+            valentine! ❤️</p>
+
+        <!-- Placeholder for celebration gif -->
+        <div style="font-size: 6rem; margin: 20px 0;">👯‍♂️💃🕺</div>
+
+        <p>I knew you'd say yes eventually... 😏</p>
+    </div>
+
+    <script>
+        // Trigger confetti
+        var duration = 5 * 1000;
+        var animationEnd = Date.now() + duration;
+        var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+        function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        var interval = setInterval(function () {
+            var timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            var particleCount = 50 * (timeLeft / duration);
+            // since particles fall down, start a bit higher than random
+            confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+            confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+        }, 250);
+    </script>
+</body>
+
+</html>

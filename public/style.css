@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    position: relative;
+    z-index: 10;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #ff3366;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 0px white;
+    animation: pulse 2s infinite;
+}
+
+.buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+    position: relative;
+    min-height: 100px;
+    /* Space for buttons */
+}
+
+button {
+    font-family: inherit;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-weight: 900;
+}
+
+#yesBtn {
+    background-color: #4ade80;
+    color: white;
+    box-shadow: 0 5px 15px rgba(74, 222, 128, 0.4);
+}
+
+#yesBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(74, 222, 128, 0.6);
+}
+
+#noBtn {
+    background-color: #ef4444;
+    color: white;
+    box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+    position: relative;
+    /* Starts relative, becomes absolute on hover/interaction */
+    transition: all 0.1s ease-out;
+}
+
+.running-text {
+    position: absolute;
+    color: #ff3366;
+    font-weight: bold;
+    font-size: 1.5rem;
+    pointer-events: none;
+    animation: fadeUp 1s forwards;
+    z-index: 5;
+    text-shadow: 1px 1px 0 white;
+    width: max-content;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(0.8);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-50px) scale(1.2);
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Floating emojis background */
+.floating-emoji {
+    position: absolute;
+    font-size: 4rem;
+    opacity: 0.3;
+    animation: float 10s infinite linear;
+    z-index: 1;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(110vh) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-10vh) rotate(360deg);
+    }
+}
+
+.success-container img {
+    max-width: 100%;
+    border-radius: 1rem;
+    margin: 1rem 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.running-text {
+    z-index: 9999 !important;
+    text-shadow: 2px 2px 0px white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+    font-size: 2rem;
+    white-space: nowrap;
+}
